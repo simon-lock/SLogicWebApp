@@ -1,4 +1,5 @@
-exports.parseJsonAndCalcBestAndWorst = function(json, numberOrDays)  {
+exports.parseJsonAndCalcBestAndWorst = function(json, range, timeUnits)  {
+  var moment = require("moment");
 
   var jsonData = JSON.parse(json).dataset;
 
@@ -6,7 +7,6 @@ exports.parseJsonAndCalcBestAndWorst = function(json, numberOrDays)  {
 
   var dateIndex = jsonData.column_names.indexOf('Date');
   var adjCloseIndex = jsonData.column_names.indexOf('Adj. Close');
-  var daySpan = numberOrDays;
   var dataSize = jsonData.data.length;
 
   var bestPerformance = Number.MIN_VALUE;
@@ -17,8 +17,17 @@ exports.parseJsonAndCalcBestAndWorst = function(json, numberOrDays)  {
   jsonData.data.forEach(function(currentDayData, index, source) {
 
     var currentDate = new Date(currentDayData[dateIndex]);
-    var targetDate = new Date(currentDate);
-    targetDate.setDate(targetDate.getDate() - daySpan);
+
+    var m = moment(currentDate);
+    var targetDate = m.subtract(range, timeUnits).toDate();
+
+    var daySpan = moment(targetDate).diff(m, 'days');
+
+    console.log("currentDate: " + currentDate);
+    console.log("targetDate: " + targetDate);
+    console.log("Day Span: " + daySpan);
+
+    return;
 
     // Find target date's data.
 

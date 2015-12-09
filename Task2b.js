@@ -24,7 +24,7 @@ var getReq = https.get(options, function(response) {
   response.on('end', function() {
 
     //console.log(body);
-    calc.parseJsonAndCalcBestAndWorst(body, 7)
+    calc.parseJsonAndCalcBestAndWorst(body, 7 ,"day")
 
   });
 });

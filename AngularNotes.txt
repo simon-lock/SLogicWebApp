@@ -1,0 +1,34 @@
+
+angular-seed
+
+index.html  is the  entry point (like app.xaml)
+
+<script src="app.js"></script>    <-- this is the entry point for angular
+
+localhost:8080/#/       <-- # is an anchor
+
+most angular apps are single page websites
+
+ng-app="myAppName"  <--- adding  this in html means 'start using angular from this point.'
+
+$scope      <---  Don't use it - it's the old way of doing things. (Add things to global scope.)
+                  instead use     var that = this;
+
+ng-cloak    <--- Use it (need a script as well - check google for script) to hide your app
+                 until angular has loaded. (Otherwise your page will render incorrectly)
+ng-show/hide <-- Aside from obvious, can be used in tandom with controller.data to show/hide
+                 the form and a 'loading' adorner.
+
+http://www.barelyfitz.com/screencast/html-training/css/positioning/
+
+F12 = web dev debugging
+
+--Dependencies--
+----------------
+
+angular-route.js      <-- route provider $routeProvider
+                          used in app.js
+
+highcharts            <--- charting
+D3 library  d3js.org  <--- Awesome charting
+d3fc                  <--- Uses D3, but takes away some of the hard work
