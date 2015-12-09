@@ -7,7 +7,7 @@ angular.module('ourApp', [
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/', {
-            templateUrl: 'list/data-list.html',
+            templateUrl: 'views/data-list.html',
             controller: 'DataSourceCtrl',
             controllerAs: 'dataCtrl'
         })

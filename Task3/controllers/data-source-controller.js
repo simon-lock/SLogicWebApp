@@ -1,9 +1,9 @@
 
 angular.module('dataSourceControllers', [])
-  .controller('DataSourceCtrl', [], function() {
+  .controller('DataSourceCtrl', ['$scope', function($scope) {
     var that = this;
 
-    that.dataSets =
+    var dataSets =
     [
       {title:"Hello, World!" body:"WAZZUP!"},
       {title:"Hello again, World!" body:"WAZZUP NOW!"},
@@ -23,6 +23,5 @@ angular.module('dataSourceControllers', [])
       {title:"Hello again, World!" body:"WAZZUP NOW!"},
       {title:"Hello, World!" body:"WAZZUP!"},
       {title:"Hello again, World!" body:"WAZZUP NOW!"},
-    ]
-    }
-  })
+    ];
+  }]);
